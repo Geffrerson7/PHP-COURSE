@@ -1,3 +1,4 @@
+<!-- MÉTODO POST -->
 <?php
 
 if($_POST){

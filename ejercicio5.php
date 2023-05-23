@@ -1,3 +1,4 @@
+<!-- STRING Y CONCATENACIÓN -->
 <?php
 
 if($_POST){

@@ -1,3 +1,4 @@
+<!-- TIPOS DE DATOS -->
 <?php
 
 $Edad=32; //int

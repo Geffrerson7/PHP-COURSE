@@ -1,3 +1,4 @@
+<!-- COMO USAR SWITCH  -->
 <?php
 if ($_POST) {
     $boton = $_POST['btnValor'];

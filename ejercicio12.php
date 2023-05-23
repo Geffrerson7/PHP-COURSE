@@ -1,3 +1,4 @@
+<!-- IF ELSE -->
 <?php
 if($_POST){
     $valorA=$_POST['valorA'];

@@ -1,3 +1,4 @@
+<!-- FUNCIONES PARA STRING -->
 <?php
 
 $nombre="Gefferson";

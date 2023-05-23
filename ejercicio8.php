@@ -1,3 +1,4 @@
+<!-- OPERADORES ARITMÉTICOS -->
 <?php
 if($_POST){
     $valorA=$_POST['valorA'];

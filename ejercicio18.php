@@ -1,3 +1,4 @@
+<!-- FUNCIONES MATEMÁTICAS -->
 <?php
 
 $numeroAleatorio = rand(1,10);

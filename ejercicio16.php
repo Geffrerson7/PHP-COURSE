@@ -1,3 +1,4 @@
+<!-- CICLO WHILE -->
 <?php
 
 $numeroInicial = 0;
