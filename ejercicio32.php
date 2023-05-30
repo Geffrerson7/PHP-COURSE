@@ -1,5 +1,10 @@
 <!-- Variables de sesion -->
 <?php
 session_start();
-echo "User: ".$_SESSION["user"]." status: ".$_SESSION["status"];
+if (isset($_SESSION["user"])) {
+    echo "User: " . $_SESSION["user"] . " status: " . $_SESSION["status"];
+} else {
+    echo "No hay datos";
+}
+
 ?>
