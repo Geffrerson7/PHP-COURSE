@@ -10,11 +10,6 @@ $opciones = [
 $respuesta = file_get_contents($url, false, stream_context_create($opciones));
 $objRespuesta = json_decode($respuesta);
 
-// foreach($objRespuesta->list as $video){
-//     print_r($video->title);
-//     print_r($video->channel);
-// }
-
 ?>
 <ul>
     <?php foreach ($objRespuesta->list as $video) { ?>
