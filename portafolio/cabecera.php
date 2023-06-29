@@ -12,6 +12,6 @@
 
 <body>
     <a href="index.php">Inicio</a> |
-    <a href="portafolio">Portafolio</a> |
+    <a href="portafolio.php">Portafolio</a> |
     <a href="cerrar.php">Cerrar</a> |
     <br />

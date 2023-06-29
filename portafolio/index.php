@@ -1,5 +1,3 @@
 <?php include("cabecera.php"); ?>
 Index page
-</body>
-
-</html>
+<?php include("pie.php"); ?>
