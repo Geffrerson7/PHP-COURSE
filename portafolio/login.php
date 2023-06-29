@@ -1,3 +1,14 @@
+<?php
+if($_POST){
+    if(($_POST["user"]=="gefferson") && ($_POST["password"]=="123456")){
+        header("location:index.php");
+    }else{
+        echo "<script> alert('Incorrect username or password')</script>";
+    }
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -26,7 +37,7 @@
                         <form action="login.php" method="post">
                             User: <input class="form-control" type="text" name="user" id="">
                             <br />
-                            Password: <input class="form-control" type="text" name="password" id="">
+                            Password: <input class="form-control" type="password" name="password" id="">
                             <br />
                             <button class="btn btn-primary" type="submit">Login</button>
                         </form>
