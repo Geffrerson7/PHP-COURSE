@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<?php require "ejercicio45_.php"; ?>
+<?php require "ejercicio45_1.php"; ?>
 <?php echo "Hola, estoy en la página principal"; ?>
 </body>
 </html>
