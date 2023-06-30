@@ -1,4 +1,10 @@
 <?php include("cabecera.php"); ?>
+<?php include("conexion.php"); ?>
+<?php
+$objConnection = new connection();
+$sql = "INSERT INTO project (name, image, description) VALUES ('Airline check-in', 'ruta/de/la/imagen.jpg', 'Airline check-in simulation');";
+$objConnection->run($sql);
+?>
 
 <div class="container" style="margin-top: 100px;">
     <div class="row justify-content-center align-items-center g-2">
@@ -26,6 +32,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Image</th>
+                            <th scope="col">Description</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,11 +40,7 @@
                             <td scope="row">R1C1</td>
                             <td>R1C2</td>
                             <td>R1C3</td>
-                        </tr>
-                        <tr class="">
-                            <td scope="row">Item</td>
-                            <td>Item</td>
-                            <td>Item</td>
+                            <td>R1C4</td>
                         </tr>
                     </tbody>
                 </table>
