@@ -20,5 +20,10 @@ class connection
         $this->connection->exec($sql);
         return $this->connection->lastInsertId();
     }
+    public function querying($sql){
+        $sentence=$this->connection->prepare($sql);
+        $sentence->execute();
+        return $sentence->fetchAll();
+    }
 }
 ?>
