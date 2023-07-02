@@ -9,6 +9,13 @@ if ($_POST) {
     $objConnection->run($sql);
 }
 
+if($_GET){
+    //DELETE FROM `project` WHERE `project`.`id` = 1
+    $id=$_GET['delete'];
+    $objConnection = new connection();
+    $sql="DELETE FROM `project` WHERE `project`.`id` =".$id;
+    $objConnection->run($sql);
+}
 $objConnection = new connection();
 $projects=$objConnection->querying("SELECT * FROM `project`");
 
@@ -47,11 +54,11 @@ $projects=$objConnection->querying("SELECT * FROM `project`");
                     <tbody>
                         <?php foreach($projects as $project) { ?>
                         <tr class="">
-                            <td scope="row"><?php echo $project['id']?></td>
-                            <td><?php echo $project['name']?></td>
-                            <td><?php echo $project['image']?></td>
-                            <td><?php echo $project['description']?></td>
-                            <td><a class="btn btn-danger" href="#">Delete</a></td>
+                            <td scope="row"><?php echo $project['id'];?></td>
+                            <td><?php echo $project['name'];?></td>
+                            <td><?php echo $project['image'];?></td>
+                            <td><?php echo $project['description'];?></td>
+                            <td><a class="btn btn-danger" href="?delete=<?php echo $project['id'];?>">Delete</a></td>
                         </tr>
                         <?php } ?>
                     </tbody>
