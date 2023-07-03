@@ -4,20 +4,26 @@
 if ($_POST) {
     print_r($_POST);
     $name = $_POST["name"];
+    $description = $_POST["description"];
+    $date = new DateTime();
+    $image = $date->getTimestamp() . "_" . $_FILES['file']['name'];
+    $temporal_image = $_FILES['file']['tmp_name'];
+
+    move_uploaded_file($temporal_image, "img/" . $image);
+
     $objConnection = new connection();
-    $sql = "INSERT INTO project (name, image, description) VALUES ('$name', 'ruta/de/la/imagen.jpg', 'Airline check-in simulation');";
+    $sql = "INSERT INTO project (name, image, description) VALUES ('$name', '$image', '$description');";
     $objConnection->run($sql);
 }
 
-if($_GET){
-    //DELETE FROM `project` WHERE `project`.`id` = 1
-    $id=$_GET['delete'];
+if ($_GET) {
+    $id = $_GET['delete'];
     $objConnection = new connection();
-    $sql="DELETE FROM `project` WHERE `project`.`id` =".$id;
+    $sql = "DELETE FROM `project` WHERE `project`.`id` =" . $id;
     $objConnection->run($sql);
 }
 $objConnection = new connection();
-$projects=$objConnection->querying("SELECT * FROM `project`");
+$projects = $objConnection->querying("SELECT * FROM `project`");
 
 ?>
 
@@ -30,10 +36,15 @@ $projects=$objConnection->querying("SELECT * FROM `project`");
                 </div>
                 <div class="card-body">
                     <form action="portafolio.php" method="post" enctype="multipart/form-data">
-                        Project name;: <input class="form-control" type="text" name="name" id="">
+                        Project name: <input class="form-control" type="text" name="name" id="">
                         <br />
                         Project image: <input class="form-control" type="file" name="file" id="">
                         <br />
+                        Description
+                        <div class="mb-3">
+                            <label for="description" class="form-label"></label>
+                            <textarea class="form-control" name="description" id="" rows="3"></textarea>
+                        </div>
                         <input class="btn btn-success form-control" type="submit" value="Send project">
                     </form>
                 </div>
@@ -52,14 +63,22 @@ $projects=$objConnection->querying("SELECT * FROM `project`");
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($projects as $project) { ?>
-                        <tr class="">
-                            <td scope="row"><?php echo $project['id'];?></td>
-                            <td><?php echo $project['name'];?></td>
-                            <td><?php echo $project['image'];?></td>
-                            <td><?php echo $project['description'];?></td>
-                            <td><a class="btn btn-danger" href="?delete=<?php echo $project['id'];?>">Delete</a></td>
-                        </tr>
+                        <?php foreach ($projects as $project) { ?>
+                            <tr class="">
+                                <td scope="row">
+                                    <?php echo $project['id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $project['name']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $project['image']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $project['description']; ?>
+                                </td>
+                                <td><a class="btn btn-danger" href="?delete=<?php echo $project['id']; ?>">Delete</a></td>
+                            </tr>
                         <?php } ?>
                     </tbody>
                 </table>
