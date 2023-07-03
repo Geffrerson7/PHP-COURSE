@@ -19,9 +19,12 @@ if ($_POST) {
 if ($_GET) {
     $id = $_GET['delete'];
     $objConnection = new connection();
+    $image = $objConnection->querying("SELECT `image` FROM `project` WHERE id=".$id);
+    unlink("img/".$image[0]['image']);
     $sql = "DELETE FROM `project` WHERE `project`.`id` =" . $id;
     $objConnection->run($sql);
 }
+
 $objConnection = new connection();
 $projects = $objConnection->querying("SELECT * FROM `project`");
 
