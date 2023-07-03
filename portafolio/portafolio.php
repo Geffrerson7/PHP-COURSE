@@ -75,7 +75,8 @@ $projects = $objConnection->querying("SELECT * FROM `project`");
                                     <?php echo $project['name']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $project['image']; ?>
+                                    <img width="100" src="img/<?php echo $project['image']; ?>" alt="" srcset="">
+                                    
                                 </td>
                                 <td>
                                     <?php echo $project['description']; ?>
