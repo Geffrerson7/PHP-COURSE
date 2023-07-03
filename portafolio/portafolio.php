@@ -14,15 +14,17 @@ if ($_POST) {
     $objConnection = new connection();
     $sql = "INSERT INTO project (name, image, description) VALUES ('$name', '$image', '$description');";
     $objConnection->run($sql);
+    header("location:portafolio.php");
 }
 
 if ($_GET) {
     $id = $_GET['delete'];
     $objConnection = new connection();
-    $image = $objConnection->querying("SELECT `image` FROM `project` WHERE id=".$id);
-    unlink("img/".$image[0]['image']);
+    $image = $objConnection->querying("SELECT `image` FROM `project` WHERE id=" . $id);
+    unlink("img/" . $image[0]['image']);
     $sql = "DELETE FROM `project` WHERE `project`.`id` =" . $id;
     $objConnection->run($sql);
+    header("location:portafolio.php");
 }
 
 $objConnection = new connection();
@@ -76,7 +78,6 @@ $projects = $objConnection->querying("SELECT * FROM `project`");
                                 </td>
                                 <td>
                                     <img width="100" src="img/<?php echo $project['image']; ?>" alt="" srcset="">
-                                    
                                 </td>
                                 <td>
                                     <?php echo $project['description']; ?>
