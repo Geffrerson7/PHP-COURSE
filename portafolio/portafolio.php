@@ -41,14 +41,14 @@ $projects = $objConnection->querying("SELECT * FROM `project`");
                 </div>
                 <div class="card-body">
                     <form action="portafolio.php" method="post" enctype="multipart/form-data">
-                        Project name: <input class="form-control" type="text" name="name" id="">
+                        Project name: <input required class="form-control" type="text" name="name" id="">
                         <br />
-                        Project image: <input class="form-control" type="file" name="file" id="">
+                        Project image: <input required class="form-control" type="file" name="file" id="">
                         <br />
                         Description
                         <div class="mb-3">
                             <label for="description" class="form-label"></label>
-                            <textarea class="form-control" name="description" id="" rows="3"></textarea>
+                            <textarea required class="form-control" name="description" id="" rows="3"></textarea>
                         </div>
                         <input class="btn btn-success form-control" type="submit" value="Send project">
                     </form>
